@@ -1,4 +1,6 @@
 import React from 'react';
+import menuLinksData from './data/menu_links.json';
+
 
 const Header = () => {
   return (
@@ -15,12 +17,14 @@ const Header = () => {
         <div className="navbar">
           <div className="brand"><a href="#welcome">Landon <span>Hotel</span></a></div>
           <ul>
-            <li><a className="icon info" href="#hotelinfo"><span>info</span></a></li>
-            <li><a className="icon rooms" href="#rooms"><span>rooms</span></a></li>
-            <li><a className="icon dining" href="#dining"><span>dining</span></a></li>
-            <li><a className="icon events" href="#events"><span>events</span></a></li>
-            <li><a className="icon attractions" href="#attractions"><span>attractions</span></a></li>
-          </ul>
+            {
+            menuLinksData.map((link) =>
+            <li><a className= {`icon ${link.class}`}><span>{link.text}</span></a></li>
+            
+           )
+          }
+           
+       </ul>
         </div>
       </nav>
     </header>
@@ -28,3 +32,11 @@ const Header = () => {
 }
 
 export default Header;
+
+
+
+
+{/* <li><a className="icon rooms" href="#rooms"><span>rooms</span></a></li>
+            <li><a className="icon dining" href="#dining"><span>dining</span></a></li>
+            <li><a className="icon events" href="#events"><span>events</span></a></li>
+            <li><a className="icon attractions" href="#attractions"><span>attractions</span></a></li> */}
